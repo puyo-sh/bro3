@@ -3,13 +3,13 @@
 // @namespace      http://xxx.xxxx.xxxx
 // @description    討伐リンク生成
 // @include        http://*.3gokushi.jp/*
-// @version        1.07
+// @version        1.08
 // ==/UserScript==
 
 (function(){
 
     var PROGRAM_NAME = '討伐リンク生成';
-    var VERSION = '1.07';
+    var VERSION = '1.08';
 
     var d = document;
     var $ = function (id, pd) {return pd ? pd.getElementById(id) : document.getElementById(id);};
@@ -90,16 +90,10 @@
 		wrapper.style.fontSize = "11px";
 
 		var slt = d.createElement("span");
-		slt.innerHTML = "[レイドSC]";
+		slt.innerHTML = '[<a href="/card/event_battle_top.php">レイドSC</a>]';
 		slt.style.marginRight = "8px";
 		slt.style.color = "#FFFFFF";
 		wrapper.appendChild(slt);
-
-		var sl5 = d.createElement("a");
-		sl5.href = "/card/event_battle_top.php";
-		sl5.innerHTML = "TOP";
-		sl5.style.marginRight = "8px";
-		wrapper.appendChild(sl5);
 
 		var sl6 = d.createElement("a");
 		sl6.href = "/card/event_battle_top.php?filter_damege=0&filter_level=-1&filter_hp=-1&scope=2";
