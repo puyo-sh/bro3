@@ -3,13 +3,15 @@
 // @namespace      http://xxx.xxxx.xxxx
 // @description    討伐リンク生成
 // @include        http://*.3gokushi.jp/*
-// @version        1.08
+// @version        1.09
 // ==/UserScript==
+
+// 2015.04.01 ver1.09 アイテム画面でレイアウト崩れが発生していた為、ショートカット表示対象から除去
 
 (function(){
 
     var PROGRAM_NAME = '討伐リンク生成';
-    var VERSION = '1.08';
+    var VERSION = '1.09';
 
     var d = document;
     var $ = function (id, pd) {return pd ? pd.getElementById(id) : document.getElementById(id);};
@@ -48,6 +50,9 @@
 
 	disp_ToubatsuLink();
 
+	if (location.pathname != '/item/' && location.pathname != '/item/index.php' && location.pathname != '/item/inbox.php') {
+		make_ToubatsuShortCut();
+	}
 	//討伐戦
 	function disp_ToubatsuLink() {
 		// ひとことコメント
@@ -75,7 +80,10 @@
 			elm.innerHTML = tmpHTML;
 		}
 
-		// ショートカットリンクを生成する
+	}
+
+	// ショートカットリンクを生成する
+	function make_ToubatsuShortCut(){
 		var target = $("whiteWrapper");
 		target.style.position = "relative";
 
