@@ -25,6 +25,7 @@
 			var view_page = getParam.p;
 			// オブジェクトからページパラメータを削除する
 			delete getParam.p;
+
 			// 残ったオブジェクトからGETパラメータ用URLを生成する
 			var param_url = '';
 			j$.each(getParam,function(index,value){
@@ -41,7 +42,7 @@
 					var $option_line = $option_li.clone();
 					$option_line.attr({
 						value:file_path+"?"+ param_url +"p="+i+"#file-1",
-						text:" "+i+" "
+						text:i
 					});
 					$select_elm.append($option_line);
 				}
@@ -54,7 +55,7 @@
 
 		/* Functions
 		-----------------------------------------------------------------------*/
-		// Get URL parameters using jQuery
+		// Get URL parameters
 		function getParameter() {
 			var arg  = new Object;
 			var pair = location.search.substring(1).split('&');
